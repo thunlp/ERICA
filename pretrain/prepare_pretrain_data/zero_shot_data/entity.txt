@@ -1,0 +1,7 @@
+{"aliases": ["NIR", "UKN", "North Ireland"], "id": "Q26", "title": "Northern Ireland"}
+{"aliases": ["\u00c9ire", "IE", "IRL", "Republic of Ireland", "Hibernia", "Ireland, Republic of", "ie", "ireland", "\ud83c\uddee\ud83c\uddea", "Eire", "Southern Ireland"], "id": "Q27", "title": "Republic of Ireland"}
+{"aliases": ["Espa\u00f1a", "Kingdom of Spain", "ES", "ESP", "\ud83c\uddea\ud83c\uddf8"], "id": "Q29", "title": "Spain"}
+{"aliases": ["biota"], "id": "Q3", "title": "Life"}
+{"aliases": ["Father of the United States", "Washington", "President Washington", "G. Washington"], "id": "Q23", "title": "George Washington"}
+{"aliases": ["Douglas No\u00ebl Adams", "Douglas Noel Adams", "Douglas N. Adams"], "id": "Q42", "title": "Douglas Adams"}
+{"aliases": ["POL", "Republic of Poland", "pl", "PL", "Polska", "\ud83c\uddf5\ud83c\uddf1"], "id": "Q36", "title": "Poland"}

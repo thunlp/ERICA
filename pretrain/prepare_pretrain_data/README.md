@@ -1,0 +1,11 @@
+# generating pre-training data for ERICA
+
+To generate the pre-training data for ERICA, you should first download the latest wikidata dump on https://dumps.wikimedia.org/wikidatawiki/entities/ and process a triple.txt / all_name_to_Q.json / all_Q.json files. triple.txt contains all (head entity, relation, tail entity) triples that will be used to distantly annotate relations between entities. all_name_to_Q.json is a name-to-entity_id map, which is used for named entity recognition. In addition to this mention-entity_id mapping, we also use hyper-links in Wikipedia for entity recognition. all_Q.json stores all entity_ids. Since the original file is too large, we only show some example files in this folder. We assume you have wikipedia pages stored in folder AA (we also give an example in AA/wiki_00).
+
+procedure1: to process the pre-training data, first you need to use get_distant.py to extract all documents from wikipedia pages, split them into sentences and individual words, and recognize the entities and their distant relations as is described in the main paper. Store them into files which will be used in procedure 2.
+
+procedure2: secondly, use remove_test_set.py to remove the entity pairs that exist in downstream tasks to avoid test set leakage. In this procedure, we also pre-tokenized all documents so that you don't need to re-tokenize them in the pre-training phase, which will save much time. (BERT tokenizer is somewhat slow.)
+
+procedure 3: lastly, use sample_data.py to store the tokenized documents / entities / relations into several files. Loading these files one by one in the pre-training stage will save much memory space. We process the pre-training data in the form of DocRED for simplicity.
+
+Since the pre-training data is too large, we provide an example training file in ../data/DOC/sampled_data/train_distant_debug.json . In future, we'll publish all the data used in our pre-processing procedure (which is around 30G in total) to advance further research explorations.
