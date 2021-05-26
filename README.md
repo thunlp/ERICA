@@ -2,14 +2,14 @@
 
 Source code and dataset for ACL2021 paper: "[ERICA: Improving Entity and Relation Understanding for Pre-trained Language Models via Contrastive Learning](https://arxiv.org/abs/2012.15022)".
 
-The code is based on huggaface's [transformers](https://github.com/huggingface/transformers), the trained models and pre-training data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/19SxYoDeKZg4Ho_FIrDYpcifCtpsl5u3K?usp=sharing).
+The code is based on huggingface's [transformers](https://github.com/huggingface/transformers), the trained models and pre-training data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/19SxYoDeKZg4Ho_FIrDYpcifCtpsl5u3K?usp=sharing).
 
 ### Quick Start
 
 You can quickly run our code by following steps:
 
 - Install dependencies as described in following section. 
-- cd to `pretrain` or `finetune` directory then download and pre-processing data for pre-training or finetuning.    
+- cd to `pretrain` or `finetune` directory then download and pre-process data for pre-training or finetuning.    
 
 ### 1. Dependencies
 
@@ -52,17 +52,8 @@ python -m torch.distributed.launch --nproc_per_node 8  main.py  \
     --pretraining_size -1 --ablation 0 --cased 0
 ```
 
-some explanations for hyper-parameters:
-temperature: \tau used in loss function of contrastive learning
-debug: whether to debug (we provide an example_debug file for pre-training)
-add_none: whether to add no_relation pair in RD loss.
-alpha: the proportion of masking (1 means no masking, in experiments, we find masking is not helpful as is described in the main paper, so for all models, we do not mask in the pre-training phase. However, we leave this function here for further research explorations.)
-flow: if masking, whether to use a linear decay
-wiki_loss: whether to add ED loss.
-doc_loss: whether to add RD loss.
-start_end_token: use another entity encoding method
-cased: whether to use cased version of BERT
+some explanations for hyper-parameters: temperature (\tau used in loss function of contrastive learning); debug (whether to debug (we provide an example_debug file for pre-training); add_none (whether to add no_relation pair in RD loss); alpha (the proportion of masking (1 means no masking, in experiments, we find masking is not helpful as is described in the main paper, so for all models, we do not mask in the pre-training phase. However, we leave this function here for further research explorations.)); flow (if masking, whether to use a linear decay); wiki_loss (whether to add ED loss); doc_loss (whether to add RD loss); start_end_token (use another entity encoding method); cased (whether to use cased version of BERT).
 
 ### 3. Fine-tuning
 
-Fine-tuning code for ERICA: Improving Entity and Relation Understanding for Pre-trained Language Models via Contrastive Learning. Please enter each folder for downstream task (document-level / sentence-level relation extraction, entity typing and question answering) fine-tuning. Before fine-tuning, we assume you have already pre-trained an ERICA model. Excecute the bash in each folder.
+Enter each folder for downstream task (document-level / sentence-level relation extraction, entity typing and question answering) fine-tuning. Before fine-tuning, we assume you have already pre-trained an ERICA model. Excecute the bash in each folder for reimplementation.
