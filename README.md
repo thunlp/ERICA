@@ -4,7 +4,14 @@ Source code and dataset for ACL2021 paper: "[ERICA: Improving Entity and Relatio
 
 The code is based on huggaface's [transformers](https://github.com/huggingface/transformers), the trained models and pre-training data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/19SxYoDeKZg4Ho_FIrDYpcifCtpsl5u3K?usp=sharing).
 
-### Dependencies
+### Quick Start
+
+You can quickly run our code by following steps:
+
+- Install dependencies as described in following section. 
+- cd to `pretrain` or `finetune` directory then download and pre-processing data for pre-training or finetuning.    
+
+### 1. Dependencies
 
 Run the following script to install dependencies.
 
@@ -15,7 +22,13 @@ pip install -r requirement.txt
 **You need to install transformers and apex manually.**
 
 **transformers**
-You should install transformers manually. We use huggingface transformers to implement Bert and RoBERTa, and the version is 2.5.0. You need to clone or download [transformers repo](https://github.com/huggingface/transformers). And for convenience, we have downloaded transformers into `code/pretrain/` so you can easily import it, and we have also modified some lines in the class `BertForMaskedLM` in `src/transformers/modeling_bert.py` while keeping the other codes unchanged.
+We use huggingface transformers to implement Bert and RoBERTa, and the version is 2.5.0. For convenience, we have downloaded transformers into `code/pretrain/` so you can easily import it, and we have also modified some lines in the class `BertForMaskedLM` in `src/transformers/modeling_bert.py` while keeping the other codes unchanged.
+
+You just need run 
+```
+pip install .
+```
+to install transformers manually.
 
 **apex**
 Install [apex](https://github.com/NVIDIA/apex) under the offical guidance.
@@ -23,9 +36,9 @@ Install [apex](https://github.com/NVIDIA/apex) under the offical guidance.
 ### process pretraining data
 In folder prepare_pretrain_data, we provide the codes for processing pre-training data.
 
-### Pretrain
+### 2. Pretraining
 
-You can use this repo to pretrain a new model. To pretrain ERICA_bert:
+To pretrain ERICA_bert:
 
 ```shell
 cd code/pretrain
@@ -49,5 +62,7 @@ wiki_loss: whether to add ED loss.
 doc_loss: whether to add RD loss.
 start_end_token: use another entity encoding method
 cased: whether to use cased version of BERT
+
+### 3. Fine-tuning
 
 Fine-tuning code for ERICA: Improving Entity and Relation Understanding for Pre-trained Language Models via Contrastive Learning. Please enter each folder for downstream task (document-level / sentence-level relation extraction, entity typing and question answering) fine-tuning. Before fine-tuning, we assume you have already pre-trained an ERICA model. Excecute the bash in each folder.
