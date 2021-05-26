@@ -2,7 +2,7 @@
 
 Source code and dataset for "[ERICA: Improving Entity and Relation Understanding for Pre-trained Language Models via Contrastive Learning](https://arxiv.org/abs/2012.15022)".
 
-![model](https://github.com/thunlp/CorefBERT/blob/master/model.jpg)
+![model](https://github.com/thuqinyj16/ERICA/blob/master/example.pdf)
 
 The code is based on huggaface's [transformers](https://github.com/huggingface/transformers), the trained models and pre-training data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/19SxYoDeKZg4Ho_FIrDYpcifCtpsl5u3K?usp=sharing).
 
